@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+ {% if posts %}
+    
+        <form method="POST" action="" enctype="multipart/form-data">
+            <fieldset class="form-group">
+            {% for post in posts.items %}
+                        {% if post.author != current_user %}
+                 <legend class="border-bottom mb-4">{{ legend }}</legend>
+                 <div class="form-group">
+                     <article class="media content-section">
+                         <div class="media-body">
+                            <h2><a class="article-title" href="#">Question: {{ post.title }}</a></h2>
+                            <small class="text-muted">Posted on: {{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+                            <div class="form-group">
+                                 {{ form.answer.label(class="form-control-label") }}
+                                 
+                                 {% if form.answer.errors %}
+                                    {{ form.answer(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.answer.errors %}
+                                            <span> {{error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                 {% else %}
+                                    {{ form.answer(class="form-control form-control-lg") }}
+                                 {% endif %}
+                             </div>
+                       </div>
+                    </article> 
+                 </div>
+                 {% endif%}
+                    {% endfor %}
+             </fieldset>
+             {% if current_user %}    
+            <div class="form-group">
+                 {{ form.submit(class="btn btn-outline-info") }}
+             </div>
+       
+      {% else %}
+            <h4>Oops... There are no questions for you to answer yet from other users. Keep checking</h4>
+      {% endif %}
+         </form>
+      
+{% endif %}
+{% endblock content%}
