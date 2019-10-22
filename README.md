@@ -41,13 +41,13 @@ password recovery functionality before running the project.
 ## Libraries used:
 * Flask:  For creating a web application
 * Flask Main:  For sending emails when a user has forgot their password
-* Flask SQLAlchemy: The Object Relational Mapper Of Choice
+* Flask SQLAlchemy: The Object Relational Mapper of choice
 * Flask-Bcrypt:  For ensuring the passwords are stored securely by being encrypted
 * Flask-WTF: For common form functionality 
 * Flask-Login: For login functionality e.g. getting the current user and checking for authentication
 
 ## Missing Functionality
 
-* Providing test results for users after they provided answers
+* Providing test results for users after answers are submitted
 * Adding machine learning by training a bot using NLTK, Numpy, Pandas and TensorFlow to create a bot which can predict the
 correct answers without the user's intervention.
